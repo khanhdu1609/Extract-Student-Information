@@ -95,7 +95,7 @@ class ExtractStudentInfo:
         info_imgs.append(sex)
         faculty = img[150:167, 132:219]
         info_imgs.append(faculty)
-        major = img[190:215, 154:204]
+        major = img[190:215, 160:204]
         info_imgs.append(major)
         gen = img[213:230, 150:235]
         info_imgs.append(gen)
@@ -107,7 +107,7 @@ class ExtractStudentInfo:
         config['cnn']['pretrained']=True
         config['device'] = 'cpu'
         detector = Predictor(config)
-        info = ['Name', 'Date of Birth', 'Sex', 'Faculty', 'Major', 'Gen', 'StdId']
+        info = ['Name', 'Date of Birth', 'Sex', 'Faculty', 'Major', 'Gen', 'Student ID']
         info_dict = {}
         for i, img in enumerate(info_img, start=0):
             string = detector.predict(Image.fromarray(img))
